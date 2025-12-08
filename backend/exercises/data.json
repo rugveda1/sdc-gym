@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "name": "Push Up",
+        "muscle": "Chest",
+        "difficulty": "Beginner",
+        "instructions": "Start in a plank position. Lower your body until your chest nearly touches the floor. Push back up."
+    },
+    {
+        "id": "2",
+        "name": "Squat",
+        "muscle": "Legs",
+        "difficulty": "Beginner",
+        "instructions": "Stand with feet shoulder-width apart. Lower your hips as if sitting in a chair. Return to standing."
+    },
+    {
+        "id": "3",
+        "name": "Pull Up",
+        "muscle": "Back",
+        "difficulty": "Intermediate",
+        "instructions": "Hang from a bar with palms facing away. Pull your body up until your chin is over the bar. Lower back down."
+    }
+]

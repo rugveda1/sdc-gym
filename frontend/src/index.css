@@ -1,0 +1,411 @@
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Sky Blue Color Palette */
+  --sky-blue: #87CEEB;
+  --sky-blue-light: #B4E4FF;
+  --sky-blue-dark: #4A90A4;
+  --coral: #FF6B6B;
+  --coral-light: #FF8E8E;
+  --purple: #A78BFA;
+  --purple-light: #C4B5FD;
+  --mint: #86EFAC;
+  --white: #FFFFFF;
+  --off-white: #F8FAFC;
+  --text-dark: #1E293B;
+  --text-light: #64748B;
+
+  color-scheme: light;
+  color: var(--text-dark);
+  background: linear-gradient(135deg, #B4E4FF 0%, #87CEEB 50%, #A78BFA 100%);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: var(--sky-blue-dark);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--coral);
+  transform: translateY(-1px);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #B4E4FF 0%, #87CEEB 50%, #A78BFA 100%);
+  background-attachment: fixed;
+}
+
+#root {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: var(--text-dark);
+  background: linear-gradient(135deg, var(--sky-blue-dark), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: var(--sky-blue-dark);
+  margin: 1rem 0;
+}
+
+button {
+  border-radius: 12px;
+  border: none;
+  padding: 0.8em 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  background: linear-gradient(135deg, var(--sky-blue), var(--sky-blue-dark));
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(135, 206, 235, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(135, 206, 235, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 3px solid var(--purple-light);
+  outline-offset: 2px;
+}
+
+/* Card style for forms and content */
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideIn 0.5s ease-out;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--sky-blue-light);
+  border-radius: 12px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--sky-blue);
+  box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.2);
+  transform: translateY(-1px);
+}
+
+nav {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px);
+  color: var(--text-dark) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: slideDown 0.5s ease-out;
+}
+
+nav a {
+  color: var(--text-dark) !important;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+nav a:hover {
+  color: var(--coral) !important;
+  background: rgba(255, 107, 107, 0.1);
+}
+
+nav button {
+  background: transparent;
+  border: 2px solid var(--coral);
+  color: var(--coral);
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+nav button:hover {
+  background: var(--coral);
+  color: white;
+}
+
+/* Profile Avatar Styles */
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sky-blue), var(--coral));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Dog Animation Modal */
+.dog-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.dog-content {
+  background: white;
+  padding: 3rem;
+  border-radius: 24px;
+  text-align: center;
+  animation: bounceIn 0.6s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.dog-emoji {
+  font-size: 8rem;
+  animation: wiggle 1s infinite;
+  display: inline-block;
+}
+
+/* Workout Page Background */
+.workout-page {
+  position: relative;
+  min-height: 80vh;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+}
+
+.workout-page::before {
+  content: '🏋️ 💪 🤸 ⚡ 🏋️ 💪 🤸 ⚡ 🏋️ 💪 🤸 ⚡';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 3rem;
+  opacity: 0.08;
+  line-height: 4rem;
+  word-wrap: break-word;
+  overflow: hidden;
+  pointer-events: none;
+  padding: 2rem;
+  z-index: 0;
+}
+
+.workout-page>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* Diet Page Background */
+.diet-page {
+  position: relative;
+  min-height: 80vh;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+}
+
+.diet-page::before {
+  content: '🥗 🥑 🍎 🥤 🍊 🥦 🍓 🥗 🥑 🍎 🥤 🍊 🥦 🍓';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 3rem;
+  opacity: 0.08;
+  line-height: 4rem;
+  word-wrap: break-word;
+  overflow: hidden;
+  pointer-events: none;
+  padding: 2rem;
+  z-index: 0;
+}
+
+.diet-page>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  70% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wiggle {
+
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Loading Spinner */
+.spinner {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
