@@ -259,6 +259,14 @@ nav button:hover {
   display: inline-block;
 }
 
+.dog-image {
+  width: 200px;
+  height: auto;
+  border-radius: 16px;
+  animation: wiggle 1s infinite;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
 /* Workout Page Background */
 .workout-page {
   position: relative;
@@ -323,6 +331,42 @@ nav button:hover {
 }
 
 .diet-page>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* Progress Page Background */
+.progress-page {
+  position: relative;
+  min-height: 80vh;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.progress-page::before {
+  content: '📊 🔥 🏆 💪 ⭐ 📈 🎯 📊 🔥 🏆 💪 ⭐ 📈 🎯';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 3rem;
+  opacity: 0.08;
+  line-height: 4rem;
+  word-wrap: break-word;
+  overflow: hidden;
+  pointer-events: none;
+  padding: 2rem;
+  z-index: 0;
+}
+
+.progress-page>* {
   position: relative;
   z-index: 1;
 }

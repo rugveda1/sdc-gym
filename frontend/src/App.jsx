@@ -21,6 +21,7 @@ const Navbar = ({ user, onLogout }) => (
         <>
           <Link to="/diet" style={{ marginRight: '1rem' }}>Diet Plan</Link>
           <Link to="/workout" style={{ marginRight: '1rem' }}>Workout</Link>
+          <Link to="/progress" style={{ marginRight: '1rem' }}>Progress</Link>
           <button onClick={onLogout} style={{ background: 'none', border: '1px solid #ccc', color: '#555' }}>Logout</button>
         </>
       ) : (
@@ -50,10 +51,12 @@ const About = () => (
   </div>
 );
 
+import puppyImage from './assets/puppy_dumbbell.png';
+
 const DogWelcome = ({ name, onClose }) => (
   <div className="dog-modal" onClick={onClose}>
     <div className="dog-content" onClick={(e) => e.stopPropagation()}>
-      <div className="dog-emoji">🐕💪</div>
+      <img src={puppyImage} alt="Cute puppy with dumbbell" className="dog-image" />
       <h2 style={{ marginTop: '1rem', color: '#4A90A4' }}>Welcome back, {name}!</h2>
       <p style={{ color: '#64748B', marginTop: '0.5rem' }}>Let's crush those fitness goals! 🏋️</p>
     </div>
@@ -117,9 +120,10 @@ const AuthForm = ({ type, onAuth }) => {
   );
 };
 
-// --- Pages (Placeholders for now) ---
+// --- Pages ---
 import DietPage from './pages/DietPage';
 import WorkoutPage from './pages/WorkoutPage';
+import ProgressPage from './pages/ProgressPage';
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -152,6 +156,7 @@ function App() {
 
           <Route path="/diet" element={token ? <DietPage token={token} /> : <Navigate to="/login" />} />
           <Route path="/workout" element={token ? <WorkoutPage token={token} /> : <Navigate to="/login" />} />
+          <Route path="/progress" element={token ? <ProgressPage token={token} /> : <Navigate to="/login" />} />
 
           <Route path="/" element={<Navigate to="/about" />} />
         </Routes>
